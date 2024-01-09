@@ -2,11 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Uptime dashboard</title>
     <link rel="stylesheet" href="css.css">
     <script src="js.js"></script>
 </head>
 <body>
+<div id="dashboard">
+  <div class="nadpis">Uptime dashboard</div>
+    <div>
+    <button id="refreshBtn" onclick="refreshData()">Refresh</button>
+    <button id="alertBtn" onclick="showAlert()">Show Alert</button>
+</div></div>
 
+<div id="alert">!Alert: This is a default visible toast!</div>
+<div class="uptimescore">
+    <div class="uptimenadpis">Uptime Score</div>
+    <span class="green">_ _ _ _ _ _</span>
+    <span class="orange">_</span>
+    <span class="red">_ _ _ _  _ _</span>
+
+</div>
+
+<div class="uptimedetails">
+    <div class="nadpiss">Uptime Details</div>
+    <div id="randomNumberContainer">Náhodné číslo:</div>
+    <div id="averageContainer" class="average">Průměr:</div>
+    <div id="minNumberContainer" class="min-number">Nejnižší číslo:</div>
+</div>
 </body>
 </html>
