@@ -4,28 +4,25 @@ function showAlert() {
         document.getElementById('alert').style.display = 'none';
     }, 5000);
 }
-
-var numbers = [];
-
-var minNumber = Infinity;
-
+let numbers = [];
+let minNumber = Infinity;
 function refreshData() {
-    var randomNumber = Math.floor(Math.random() * 100) + 1;
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
     numbers.push(randomNumber);
-
-
     if (randomNumber < minNumber) {
         minNumber = randomNumber;
-        document.getElementById('minNumberContainer').innerText = 'Nejnižší číslo: ' + minNumber;
+        document.getElementById('minNumberContainer').innerText = 'Last downtime: ' + minNumber;
     }
-
-
-    document.getElementById('randomNumberContainer').innerText = 'Náhodné číslo: ' + randomNumber+"%";
-    document.getElementById('averageContainer').innerText = 'Průměr: ' + calculateAverage(numbers);
+    document.getElementById('randomNumberContainer').innerText = 'Uptime: ' + randomNumber + "%";
+    let averageMessage = calculateAverage(randomNumber);
+    document.getElementById('averageContainer').innerText = 'Status uptime: ' + averageMessage;
 }
-
-
-function calculateAverage(array) {
-    var sum = array.reduce(function(a, b) { return a + b; }, 0);
-    return (sum / array.length).toFixed(2);
+function calculateAverage(randomNumber) {
+    if (randomNumber < 20) {
+        return 'Poor';
+    } else if (randomNumber >= 20 && randomNumber < 50) {
+        return 'OK';
+    } else if (randomNumber >= 50 && randomNumber <= 100) {
+        return 'Good';
+    }
 }

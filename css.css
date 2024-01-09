@@ -17,7 +17,7 @@ padding: 10px;
     border: 2px solid grey;
 }
 #alert {
-    position: fixed;
+    position: absolute;
     bottom: 20px;
     right: 20px;
     padding: 20px;
