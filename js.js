@@ -21,8 +21,8 @@ function updateUptimeScore() {
 }
 
 function updateUptimeDetails() {
-    const randomLastDowntime = Math.floor(Math.random() * 61); // 0 to 60
-    const randomAvgDowntime = Math.floor(Math.random() * 61); // 0 to 60
+    const randomLastDowntime = Math.floor(Math.random() * 61);
+    const randomAvgDowntime = Math.floor(Math.random() * 61);
 
     lastDowntimeValue.textContent = `Last Downtime: ${randomLastDowntime} minutes`;
     avgDowntimeValue.textContent = `Average Downtime: ${randomAvgDowntime}`;
@@ -35,17 +35,24 @@ function getRandomColor() {
 }
 
 function showAlert() {
-    const alertToast = document.querySelector('.alert-toast');
-    alertToast.style.display = 'block';
+    const alertElement = document.querySelector('.alert');
+
+    // Display the alert
+    alertElement.style.display = 'block';
+
+    // Hide the alert after 2000 milliseconds (2 seconds)
     setTimeout(function () {
-        alertToast.style.display = 'none';
+        alertElement.style.display = 'none';
     }, 2000);
 }
 
+
 function updateUptimeBars() {
-    const bars = Array.from(uptimeBarsContainer.getElementsByClassName('uptime-bar'));
-    bars.forEach(bar => {
+    const bars = uptimeBarsContainer.getElementsByClassName('uptime-bar');
+
+    for (let i = 0; i < bars.length; i++) {
         const randomColor = getRandomColor();
-        bar.className = `uptime-bar ${randomColor}`;
-    });
+        bars[i].className = `uptime-bar ${randomColor}`;
+    }
 }
+
