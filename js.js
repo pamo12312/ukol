@@ -43,7 +43,7 @@ function showAlert() {
     // Hide the alert after 2000 milliseconds (2 seconds)
     setTimeout(function () {
         alertElement.style.display = 'none';
-    }, 2000);
+    }, 5000);
 }
 
 
