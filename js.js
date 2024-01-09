@@ -37,10 +37,8 @@ function getRandomColor() {
 function showAlert() {
     const alertElement = document.querySelector('.alert');
 
-    // Display the alert
     alertElement.style.display = 'block';
 
-    // Hide the alert after 2000 milliseconds (2 seconds)
     setTimeout(function () {
         alertElement.style.display = 'none';
     }, 5000);
