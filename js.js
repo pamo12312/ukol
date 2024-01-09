@@ -1,28 +1,51 @@
+const refreshBtn = document.querySelector('#refreshBtn');
+const showAlertBtn = document.querySelector('.btnshow-alert');
+const uptimeBarsContainer = document.querySelector('.uptime-bars');
+const uptimeValue = document.querySelector('.uptime');
+const lastDowntimeValue = document.querySelector('.last-downtime');
+const avgDowntimeValue = document.querySelector('.avg-downtime');
+
+refreshBtn.addEventListener('click', function () {
+    updateUptimeScore();
+    updateUptimeBars();
+    updateUptimeDetails();
+});
+
+showAlertBtn.addEventListener('click', function () {
+    showAlert();
+});
+
+function updateUptimeScore() {
+    const randomScore = Math.floor(Math.random() * 101);
+    uptimeValue.textContent = `Uptime: ${randomScore}%`;
+}
+
+function updateUptimeDetails() {
+    const randomLastDowntime = Math.floor(Math.random() * 61); // 0 to 60
+    const randomAvgDowntime = Math.floor(Math.random() * 61); // 0 to 60
+
+    lastDowntimeValue.textContent = `Last Downtime: ${randomLastDowntime} minutes`;
+    avgDowntimeValue.textContent = `Average Downtime: ${randomAvgDowntime}`;
+}
+
+function getRandomColor() {
+    const colors = ['red', 'orange', 'green'];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+}
+
 function showAlert() {
-    document.getElementById('alert').style.display = 'block';
+    const alertToast = document.querySelector('.alert-toast');
+    alertToast.style.display = 'block';
     setTimeout(function () {
-        document.getElementById('alert').style.display = 'none';
-    }, 5000);
+        alertToast.style.display = 'none';
+    }, 2000);
 }
-let numbers = [];
-let minNumber = Infinity;
-function refreshData() {
-    let randomNumber = Math.floor(Math.random() * 100) + 1;
-    numbers.push(randomNumber);
-    if (randomNumber < minNumber) {
-        minNumber = randomNumber;
-        document.getElementById('minNumberContainer').innerText = 'Last downtime: ' + minNumber;
-    }
-    document.getElementById('randomNumberContainer').innerText = 'Uptime: ' + randomNumber + "%";
-    let averageMessage = calculateAverage(randomNumber);
-    document.getElementById('averageContainer').innerText = 'Status uptime: ' + averageMessage;
-}
-function calculateAverage(randomNumber) {
-    if (randomNumber < 20) {
-        return 'Poor';
-    } else if (randomNumber >= 20 && randomNumber < 50) {
-        return 'OK';
-    } else if (randomNumber >= 50 && randomNumber <= 100) {
-        return 'Good';
-    }
+
+function updateUptimeBars() {
+    const bars = Array.from(uptimeBarsContainer.getElementsByClassName('uptime-bar'));
+    bars.forEach(bar => {
+        const randomColor = getRandomColor();
+        bar.className = `uptime-bar ${randomColor}`;
+    });
 }

@@ -4,30 +4,43 @@
     <meta charset="UTF-8">
     <title>Uptime dashboard</title>
     <link rel="stylesheet" href="css.css">
-    <script src="js.js"></script>
+    <script type="module" src="js.js"></script>
 </head>
 <body>
 <div id="dashboard">
   <div class="nadpis">Uptime dashboard</div>
     <div>
     <button id="refreshBtn" onclick="refreshData()">Refresh</button>
-    <button id="alertBtn" onclick="showAlert()">Show Alert</button>
+        <button class="btnshow-alert">Show Alert</button>
 </div></div>
 
-<div id="alert">!Alert: This is a default visible toast!</div>
+
+<div class="alert-toast">!Alert: This is a default visible toast!</div>
 <div class="uptimescore">
     <div class="uptimenadpis">Uptime Score</div>
-    <span class="green">_ _ _ _ _ _ </span>
-    <span class="orange"> _ </span>
-    <span class="red">_ _ _ _ _ _</span>
+    <div class="uptime-bars">
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+        <span class="uptime-bar">-</span>
+    </div>
+
 
 </div>
 
 <div class="uptimedetails">
     <div class="nadpiss">Uptime Details</div>
-    <div id="randomNumberContainer">Uptime:-%</div>
-    <div id="averageContainer" class="average">Status uptime:</div>
-    <div id="minNumberContainer" class="min-number">Last downtime:</div>
+    <div class="uptime">Uptime: 0%</div>
+    <div class="last-downtime">Last Downtime: 0 minutes</div>
+    <div class="avg-downtime">Average Downtime: 0</div>
 </div>
 </body>
 </html>

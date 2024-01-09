@@ -16,7 +16,14 @@ padding: 10px;
     border-radius: 10px;
     border: 2px solid grey;
 }
-#alert {
+.btnshow-alert{
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: 2px solid grey;
+}
+.alert-toast{
     position: absolute;
     bottom: 20px;
     right: 20px;
