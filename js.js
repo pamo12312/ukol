@@ -15,6 +15,7 @@ let currentIndex = 0;
 let currentStatus;
 let currentDate;
 
+
 refreshBtn.addEventListener('click', handleRefreshClick);
 
 function handleRefreshClick() {
